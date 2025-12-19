@@ -1,33 +1,39 @@
 <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 
   <header
-    class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+    class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700 shadow-sm transition-colors duration-300">
 
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
       <!-- Logo -->
-      <h1 class="text-xl font-bold">Narsing.dev</h1>
+      <h1 class="text-2xl font-bold text-rose-500 hover:text-rose-600 transition-colors cursor-pointer">
+        Narsing.dev
+      </h1>
 
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex gap-6 items-center text-sm font-medium">
-        <a href="#home" class="hover:text-indigo-500">Home</a>
-        <a href="#about" class="hover:text-indigo-500">About</a>
-        <a href="#skills" class="hover:text-indigo-500">Skills</a>
-        <a href="#projects" class="hover:text-indigo-500">Projects</a>
-        <a href="#contact" class="hover:text-indigo-500">Contact</a>
+      <nav class="hidden md:flex gap-8 items-center text-sm font-medium">
+        <a href="#home" class="hover:text-rose-400 transition-colors">Home</a>
+        <a href="#about" class="hover:text-rose-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-rose-400 transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-rose-400 transition-colors">Projects</a>
+        <a href="#contact" class="hover:text-rose-400 transition-colors">Contact</a>
 
-        <button (click)="toggleTheme()" class="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700">
-          {{ isDark ? '☀️' : '🌙' }}
+        <!-- Theme Toggle -->
+        <button (click)="toggleTheme()"
+          class="px-4 py-1 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-rose-100 dark:hover:bg-rose-800 transition-colors text-sm">
+          {{ isDark ? '☀️ Light' : '🌙 Dark' }}
         </button>
       </nav>
 
       <!-- Mobile Buttons -->
       <div class="flex md:hidden items-center gap-3">
-        <button (click)="toggleTheme()" class="px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700">
+        <button (click)="toggleTheme()"
+          class="px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-rose-100 dark:hover:bg-rose-800 transition-colors">
           {{ isDark ? '☀️' : '🌙' }}
         </button>
 
-        <button (click)="toggleMenu()" class="text-2xl focus:outline-none">
+        <button (click)="toggleMenu()"
+          class="text-2xl p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none">
           ☰
         </button>
       </div>
@@ -35,18 +41,20 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div *ngIf="isMenuOpen" class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+    <div *ngIf="isMenuOpen"
+      class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg transition-all duration-300">
 
       <nav class="flex flex-col text-center py-4 space-y-4">
-        <a href="#home" (click)="closeMenu()">Home</a>
-        <a href="#about" (click)="closeMenu()">About</a>
-        <a href="#skills" (click)="closeMenu()">Skills</a>
-        <a href="#projects" (click)="closeMenu()">Projects</a>
-        <a href="#contact" (click)="closeMenu()">Contact</a>
+        <a href="#home" (click)="closeMenu()" class="hover:text-rose-400 transition-colors">Home</a>
+        <a href="#about" (click)="closeMenu()" class="hover:text-rose-400 transition-colors">About</a>
+        <a href="#skills" (click)="closeMenu()" class="hover:text-rose-400 transition-colors">Skills</a>
+        <a href="#projects" (click)="closeMenu()" class="hover:text-rose-400 transition-colors">Projects</a>
+        <a href="#contact" (click)="closeMenu()" class="hover:text-rose-400 transition-colors">Contact</a>
       </nav>
     </div>
 
   </header>
+
 
 
   <!-- HOME / HERO -->
@@ -57,7 +65,9 @@
       <div class="absolute inset-0 bg-gradient-to-br from-indigo-100 via-cyan-100 to-white
                   dark:from-gray-900 dark:via-indigo-950 dark:to-black"></div>
 
-      <img src="https://www.svgrepo.com/show/530199/blob.svg" class="floating blob-1" />
+      <img
+        src="https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1206&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        class="floating blob-1" />
       <img src="https://www.svgrepo.com/show/530202/blob.svg" class="floating blob-2" />
 
       <div class="absolute inset-0 bg-grid opacity-10"></div>
@@ -70,19 +80,19 @@
         Narsing Gurme
       </h1>
 
-      <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-        Software Developer · IT Industry
+      <p class="mt-4 text-xl font-medium text-gray-700 dark:text-gray-300">
+        Full Stack Developer · Angular & Spring Boot · Fintech & Enterprise Systems
       </p>
+
 
       <div class="glass-card mt-10 p-6 text-left font-mono text-sm">
         <p class="text-green-400">$ whoami</p>
-        <p class="mt-2">
-          Full Stack Java Developer building secure
-          <span class="text-indigo-400">Fintech</span> &
-          <span class="text-cyan-400">Enterprise</span> systems using
-          Angular & Spring Boot.
+        <p class="mt-2 text-lg text-gray-600 dark:text-gray-400 font-mono">
+          {{ typedText }}
           <span class="caret"></span>
         </p>
+
+
       </div>
       <div class="mt-10 flex justify-center gap-4 flex-wrap">
         <button (click)="downloadResume()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-red-500 to-rose-500
@@ -108,10 +118,11 @@
       <!-- TEXT -->
       <div class="space-y-6">
         <p class="text-gray-600 dark:text-gray-400">
-          I am a <span class="font-semibold text-rose-400">Full Stack Java Developer</span>
-          with 1.5+ years of experience building secure, scalable fintech and enterprise
-          platforms. I specialize in designing clean architectures, optimizing performance,
-          and delivering reliable systems used in real-world banking environments.
+          I am a <span class="font-semibold text-rose-400">Full Stack Developer</span>
+          with 1.5+ years of experience building scalable fintech and enterprise platforms.
+          I specialize in <span class="text-rose-400 font-medium">Angular</span> for frontend
+          and <span class="text-rose-400 font-medium">Spring Boot & Microservices</span>
+          for backend, delivering robust, end-to-end solutions.
         </p>
 
         <p class="text-gray-600 dark:text-gray-400">
@@ -149,31 +160,48 @@
     </div>
   </section>
 
+  <section class="py-24 px-6 bg-gray-50 dark:bg-gray-900">
+    <h2 class="text-4xl font-bold text-center mb-12 gradient-text">What I Do</h2>
 
-  <section class="py-24 px-6">
-    <h2 class="text-3xl font-bold text-center mb-12">What I Do</h2>
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="glass-card p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Backend Development</h3>
-        <p class="text-gray-600 dark:text-gray-400">
-          Secure Spring Boot microservices, REST/SOAP APIs, and database optimization.
+      <!-- Backend -->
+      <div
+        class="glass-card p-8 text-center flex flex-col items-center hover:-translate-y-2 hover:shadow-2xl transition-transform duration-300">
+        <div class="text-5xl mb-4 text-rose-400">⚙️</div>
+        <h3 class="font-bold text-xl mb-3 text-rose-500">Backend Development</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">
+          Build <span class="font-semibold text-indigo-400">secure Spring Boot microservices</span>,
+          <span class="font-semibold text-indigo-400">REST/SOAP APIs</span>, and optimize databases for
+          <span class="font-semibold text-indigo-400">high performance</span>.
         </p>
       </div>
 
-      <div class="glass-card p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">Frontend Development</h3>
-        <p class="text-gray-600 dark:text-gray-400">
-          Responsive Angular applications with clean UI, dark mode, and animations.
+      <!-- Frontend -->
+      <div
+        class="glass-card p-8 text-center flex flex-col items-center hover:-translate-y-2 hover:shadow-2xl transition-transform duration-300">
+        <div class="text-5xl mb-4 text-rose-400">💻</div>
+        <h3 class="font-bold text-xl mb-3 text-rose-500">Frontend Development</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">
+          Create <span class="font-semibold text-indigo-400">responsive Angular applications</span>
+          with <span class="font-semibold text-indigo-400">dark mode</span>, smooth <span
+            class="font-semibold text-indigo-400">animations</span>,
+          and clean, modern UI.
         </p>
       </div>
 
-      <div class="glass-card p-6 text-center">
-        <h3 class="font-semibold text-lg mb-2">DevOps & Cloud</h3>
-        <p class="text-gray-600 dark:text-gray-400">
-          Dockerized services, Kubernetes deployments, CI/CD pipelines.
+      <!-- DevOps & Cloud -->
+      <div
+        class="glass-card p-8 text-center flex flex-col items-center hover:-translate-y-2 hover:shadow-2xl transition-transform duration-300">
+        <div class="text-5xl mb-4 text-rose-400">☁️</div>
+        <h3 class="font-bold text-xl mb-3 text-rose-500">DevOps & Cloud</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">
+          Deploy <span class="font-semibold text-indigo-400">Dockerized services</span>, manage
+          <span class="font-semibold text-indigo-400">Kubernetes clusters</span>, and implement
+          <span class="font-semibold text-indigo-400">CI/CD pipelines</span>.
         </p>
       </div>
+
     </div>
   </section>
 
@@ -182,64 +210,144 @@
   <section id="skills" class="py-24 px-6">
     <h2 class="text-3xl font-bold text-center mb-12">Tech I Work With</h2>
 
-    <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-      <span class="skill-pill">Java</span>
-      <span class="skill-pill">Angular</span>
-      <span class="skill-pill">Spring Boot</span>
-      <span class="skill-pill">Microservices</span>
-      <span class="skill-pill">Oracle</span>
-      <span class="skill-pill">Docker</span>
-      <span class="skill-pill">Kubernetes</span>
-      <span class="skill-pill">JWT</span>
-      <span class="skill-pill">MySQL</span>
-      <span class="skill-pill">Keycloak</span>
-      <span class="skill-pill">Git</span>
-      <span class="skill-pill">CI/CD</span>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 text-center">
+
+      <div>
+        <h4 class="mb-3 font-semibold">Frontend</h4>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="skill-pill">Angular</span>
+          <span class="skill-pill">HTML</span>
+          <span class="skill-pill">CSS</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Responsive Design</span>
+          <span class="skill-pill">Tailwind CSS</span>
+
+        </div>
+      </div>
+
+      <div>
+        <h4 class="mb-3 font-semibold">Backend</h4>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">Spring Boot</span>
+          <span class="skill-pill">Microservices</span>
+          <span class="skill-pill">REST / SOAP</span>
+          <span class="skill-pill">Oracle / MySQL</span>
+          <span class="skill-pill">JWT / Security</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">Kubernetes</span>
+          <span class="skill-pill">CI/CD</span>
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">API Gateway</span>
+        </div>
+      </div>
+
     </div>
+
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="py-24 px-6 bg-gray-50 dark:bg-gray-800">
-    <h2 class="text-3xl font-bold text-center mb-14">Selected Projects</h2>
+    <h2 class="text-3xl font-bold text-center mb-14 gradient-text">Selected Projects</h2>
 
     <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-      <div class="project-card">
-        <h3 class="text-xl font-bold">HDFC Bank – CTS</h3>
-        <p class="text-gray-600 dark:text-gray-400 mt-2">
+
+      <!-- Project 1 -->
+      <div class="project-card p-6 flex flex-col justify-between hover:scale-105 transition">
+        <h3 class="text-xl font-bold mb-2 text-rose-400">HDFC Bank – CTS</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">
           Cheque Truncation System with secure REST/SOAP APIs.
         </p>
-        <p class="mt-3 text-sm text-indigo-400">
+        <p class="text-sm text-indigo-400 font-semibold">
           Spring Boot · Oracle · Microservices
         </p>
       </div>
 
-      <div class="project-card">
-        <h3 class="text-xl font-bold">Qatar National Bank</h3>
-        <p class="text-gray-600 dark:text-gray-400 mt-2">
+      <!-- Project 2 -->
+      <div class="project-card p-6 flex flex-col justify-between hover:scale-105 transition">
+        <h3 class="text-xl font-bold mb-2 text-rose-400">Qatar National Bank</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">
           Secure interbank transaction services.
         </p>
-        <p class="mt-3 text-sm text-indigo-400">
+        <p class="text-sm text-indigo-400 font-semibold">
           Angular · Spring Security · CI/CD
         </p>
       </div>
+
+      <!-- Project 3 -->
+      <div class="project-card p-6 flex flex-col justify-between hover:scale-105 transition">
+        <h3 class="text-xl font-bold mb-2 text-rose-400">E-commerce Website</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">
+          Full-stack online store with Angular & Spring Boot.
+        </p>
+        <p class="text-sm text-indigo-400 font-semibold">
+          Angular · Spring Boot · Stripe Payment · MySQL
+        </p>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card p-6 flex flex-col justify-between hover:scale-105 transition">
+        <h3 class="text-xl font-bold mb-2 text-rose-400">Employee Management System</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">
+          Manage employees, attendance & payroll.
+        </p>
+        <p class="text-sm text-indigo-400 font-semibold">
+          Angular · Spring Boot · MySQL · JWT
+        </p>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card p-6 flex flex-col justify-between hover:scale-105 transition">
+        <h3 class="text-xl font-bold mb-2 text-rose-400">Book Store</h3>
+        <p class="text-gray-600 dark:text-gray-400 mb-3">
+          Online book catalog with search & filter functionality.
+        </p>
+        <p class="text-sm text-indigo-400 font-semibold">
+          Angular · Spring Boot · REST APIs · MongoDB
+        </p>
+      </div>
+
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="py-24 px-6">
-    <div class="glass-card max-w-xl mx-auto p-10 text-center">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Contact</h2>
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 px-6 bg-gray-50 dark:bg-gray-900">
+    <div
+      class="glass-card max-w-xl mx-auto p-10 text-center flex flex-col items-center gap-6 hover:shadow-2xl transition-shadow duration-300">
 
-      <p>📞 +91 76662 55871</p>
-      <p>📧 narsinggurme&#64;gmail.com</p>
+      <h2 class="text-4xl font-bold mb-6 gradient-text">Get In Touch</h2>
 
+      <!-- Contact Info -->
+      <div class="space-y-3 text-gray-700 dark:text-gray-300">
+        <p class="flex items-center justify-center gap-2 text-lg">
+          <span class="text-rose-400 text-xl">📞</span> +91 76662 55871
+        </p>
+        <p class="flex items-center justify-center gap-2 text-lg">
+          <span class="text-rose-400 text-xl">📧</span> narsinggurme&#64;gmail.com
+        </p>
+      </div>
+
+      <!-- Social Links -->
       <div class="flex justify-center gap-6 mt-6">
         <a href="https://linkedin.com/in/narsing-gurme-141320197" target="_blank"
-          class="text-indigo-500 hover:underline">LinkedIn</a>
+          class="px-4 py-2 rounded-full bg-gradient-to-r from-rose-400 to-pink-400 text-white font-semibold hover:scale-105 transition-transform shadow-md">
+          LinkedIn
+        </a>
 
-        <a href="https://github.com/narsinggurme" target="_blank" class="text-indigo-500 hover:underline">GitHub</a>
+        <a href="https://github.com/narsinggurme" target="_blank"
+          class="px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold hover:scale-105 transition-transform shadow-md">
+          GitHub
+        </a>
       </div>
+
+      <!-- Optional Message CTA -->
+      <a href="mailto:narsinggurme&#64;gmail.com" class="mt-6 text-sm text-indigo-400 hover:underline">
+        Or send me an email directly
+      </a>
+
     </div>
   </section>
+
 
 </div>

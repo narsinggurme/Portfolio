@@ -41,14 +41,26 @@ section {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-rose-400 to-pink-400;
 }
 
-/* Terminal caret animation */
-.caret::after {
-    content: '|';
+
+.caret {
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background: #b1700e;
+    margin-left: 4px;
     animation: blink 1s infinite;
 }
 
 @keyframes blink {
-    50% {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
         opacity: 0;
     }
 }
