@@ -33,20 +33,18 @@ export class AppComponent implements OnInit {
   }
 
   downloadResume() {
-    window.open('src/assets/resume/Narsing_Gurme.pdf', '_blank');
+    window.open('/resume/Narsing_Gurme.pdf', '_blank');
   }
+
 
   ngOnInit() {
 
-    // Default dark mode
     document.documentElement.classList.add('dark');
 
-    // ✅ SEO TITLE
     this.titleService.setTitle(
       'Narsing Gurme | Full Stack Java Developer (Angular & Spring Boot)'
     );
 
-    // ✅ META TAGS
     this.metaService.addTags([
       {
         name: 'description',
@@ -61,7 +59,6 @@ export class AppComponent implements OnInit {
       { name: 'author', content: 'Narsing Gurme' },
       { name: 'robots', content: 'index, follow' },
 
-      // Open Graph (LinkedIn / WhatsApp)
       { property: 'og:title', content: 'Narsing Gurme | Full Stack Java Developer' },
       {
         property: 'og:description',
@@ -71,7 +68,7 @@ export class AppComponent implements OnInit {
       { property: 'og:type', content: 'website' },
       {
         property: 'og:url',
-        content: 'https://narsing-gurme.onrender.com'
+        content: 'https://narsinggurme.netlify.app/'
       }
     ]);
   }
