@@ -44,7 +44,6 @@ export class AppComponent implements OnInit {
         setTimeout(() => (this.isDeleting = true), this.pauseAfterTyping);
       }
     } else {
-      // Deleting
       this.typedText = currentRole.substring(0, this.charIndex - 1);
       this.charIndex--;
 
@@ -81,7 +80,10 @@ export class AppComponent implements OnInit {
   }
 
   downloadResume() {
-    window.open('/resume/Narsing_Gurme.pdf', '_blank');
+    window.open(
+      'https://drive.google.com/file/d/1Va7hjF8Z0uTUpoOAArLg6l-igBM2yWk1/view',
+      '_blank'
+    );
   }
   ngOnInit() {
 
