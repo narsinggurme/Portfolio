@@ -80,10 +80,7 @@ export class AppComponent implements OnInit {
   }
 
   downloadResume() {
-    window.open(
-      'https://drive.google.com/file/d/1Va7hjF8Z0uTUpoOAArLg6l-igBM2yWk1/view',
-      '_blank'
-    );
+    window.open('/resume/Narsing_Gurme.pdf', '_blank');
   }
   ngOnInit() {
 
