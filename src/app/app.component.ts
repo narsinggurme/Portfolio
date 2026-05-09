@@ -15,11 +15,12 @@ export class AppComponent implements OnInit {
   isMenuOpen = false;
 
   roles: string[] = [
-    'Full Stack Java Developer',
+    '2+ Years Experienced Java Backend Developer',
     'Spring Boot Microservices Engineer',
-    'Angular & Frontend Specialist',
-    'Fintech Application Developer',
-    'REST API & Secure Backend Engineer'
+    'Fintech & Banking Application Developer',
+    'Secure REST & SOAP API Specialist',
+    'Angular Frontend Collaborator',
+    'Cloud & DevOps Enthusiast'
   ];
 
   typedText = '';
@@ -30,41 +31,83 @@ export class AppComponent implements OnInit {
   typingSpeed = 100;
   deletingSpeed = 60;
   pauseAfterTyping = 1500;
-  pauseAfterDeleting = 500;
+
+  constructor(
+    private titleService: Title,
+    private metaService: Meta
+  ) { }
+
+  ngOnInit() {
+
+    document.documentElement.classList.add('dark');
+
+    this.titleService.setTitle(
+      'Narsing Gurme | Java Backend Developer'
+    );
+
+    this.metaService.addTags([
+      {
+        name: 'description',
+        content:
+          'Narsing Gurme is a Java Backend Developer with 2+ years of experience building secure banking and fintech applications using Spring Boot, Microservices, Angular, Oracle, Kafka, and Cloud technologies.'
+      },
+      {
+        name: 'keywords',
+        content:
+          'Narsing Gurme, Java Backend Developer, Spring Boot, Microservices, Angular, Fintech Developer, Banking Applications'
+      },
+      { name: 'author', content: 'Narsing Gurme' },
+      { name: 'robots', content: 'index, follow' },
+
+      {
+        property: 'og:title',
+        content: 'Narsing Gurme | Java Backend Developer'
+      },
+      {
+        property: 'og:description',
+        content:
+          'Experienced Java Backend Developer specializing in Spring Boot, Microservices, Banking & Fintech Systems.'
+      },
+      { property: 'og:type', content: 'website' }
+    ]);
+
+    this.startTypingEffect();
+  }
 
   startTypingEffect() {
+
     const currentRole = this.roles[this.roleIndex];
 
     if (!this.isDeleting) {
-      // Typing
+
       this.typedText = currentRole.substring(0, this.charIndex + 1);
       this.charIndex++;
 
       if (this.charIndex === currentRole.length) {
-        setTimeout(() => (this.isDeleting = true), this.pauseAfterTyping);
+        this.isDeleting = true;
+
+        setTimeout(() => {
+          this.startTypingEffect();
+        }, this.pauseAfterTyping);
+
+        return;
       }
+
     } else {
+
       this.typedText = currentRole.substring(0, this.charIndex - 1);
       this.charIndex--;
 
       if (this.charIndex === 0) {
         this.isDeleting = false;
         this.roleIndex = (this.roleIndex + 1) % this.roles.length;
-        setTimeout(() => { }, this.pauseAfterDeleting);
       }
     }
 
-    setTimeout(
-      () => this.startTypingEffect(),
-      this.isDeleting ? this.deletingSpeed : this.typingSpeed
-    );
+    setTimeout(() => {
+      this.startTypingEffect();
+    }, this.isDeleting ? this.deletingSpeed : this.typingSpeed);
   }
-
-
-  constructor(
-    private titleService: Title,
-    private metaService: Meta
-  ) { }
 
   toggleTheme() {
     this.isDark = !this.isDark;
@@ -80,45 +123,6 @@ export class AppComponent implements OnInit {
   }
 
   downloadResume() {
-    window.open('/resume/Narsing_Gurme.pdf', '_blank');
+    window.open('/resume/Narsing_Balaji_Gurme.pdf', '_blank');
   }
-  ngOnInit() {
-
-    document.documentElement.classList.add('dark');
-
-    this.titleService.setTitle(
-      'Narsing Gurme | Full Stack Java Developer (Angular & Spring Boot)'
-    );
-    this.startTypingEffect();
-    this.metaService.addTags([
-      {
-        name: 'description',
-        content:
-          'Narsing Gurme is a Full Stack Java Developer with 1.5+ years of experience building secure fintech and enterprise applications using Angular, Spring Boot, and Microservices.'
-      },
-      {
-        name: 'keywords',
-        content:
-          'Narsing Gurme, Full Stack Java Developer, Angular Developer, Spring Boot, Fintech Developer'
-      },
-      { name: 'author', content: 'Narsing Gurme' },
-      { name: 'robots', content: 'index, follow' },
-
-      { property: 'og:title', content: 'Narsing Gurme | Full Stack Java Developer' },
-      {
-        property: 'og:description',
-        content:
-          'Full Stack Java Developer specializing in Angular, Spring Boot, Microservices, and Fintech platforms.'
-      },
-      { property: 'og:type', content: 'website' },
-      {
-        property: 'og:url',
-        content: 'https://narsinggurme.netlify.app/'
-      }
-    ]);
-  }
-
-
 }
-
-
