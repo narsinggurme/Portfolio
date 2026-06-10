@@ -122,7 +122,7 @@ export class AppComponent implements OnInit {
     this.isMenuOpen = false;
   }
 
-  downloadResume() {
-    window.open('/resume/Narsing_Balaji_Gurme.pdf', '_blank');
-  }
+ downloadResume() {
+  window.open('/resume/Narsing_Gurme_Resume.pdf', '_blank');
+}
 }
