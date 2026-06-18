@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
@@ -7,9 +7,9 @@ import { Meta, Title } from '@angular/platform-browser';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   isDark = true;
   isMenuOpen = false;
@@ -32,10 +32,12 @@ export class AppComponent implements OnInit {
   deletingSpeed = 60;
   pauseAfterTyping = 1500;
 
+  private typingTimer: any;
+
   constructor(
     private titleService: Title,
     private metaService: Meta
-  ) { }
+  ) {}
 
   ngOnInit() {
 
@@ -49,29 +51,20 @@ export class AppComponent implements OnInit {
       {
         name: 'description',
         content:
-          'Narsing Gurme is a Java Backend Developer with 2+ years of experience building secure banking and fintech applications using Spring Boot, Microservices, Angular, Oracle, Kafka, and Cloud technologies.'
+          'Java Backend Developer with 2+ years experience in Banking and Fintech Applications.'
       },
       {
         name: 'keywords',
         content:
-          'Narsing Gurme, Java Backend Developer, Spring Boot, Microservices, Angular, Fintech Developer, Banking Applications'
-      },
-      { name: 'author', content: 'Narsing Gurme' },
-      { name: 'robots', content: 'index, follow' },
-
-      {
-        property: 'og:title',
-        content: 'Narsing Gurme | Java Backend Developer'
-      },
-      {
-        property: 'og:description',
-        content:
-          'Experienced Java Backend Developer specializing in Spring Boot, Microservices, Banking & Fintech Systems.'
-      },
-      { property: 'og:type', content: 'website' }
+          'Java, Spring Boot, Microservices, Kafka, Angular, Oracle, Backend Developer'
+      }
     ]);
 
     this.startTypingEffect();
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.typingTimer);
   }
 
   startTypingEffect() {
@@ -80,13 +73,18 @@ export class AppComponent implements OnInit {
 
     if (!this.isDeleting) {
 
-      this.typedText = currentRole.substring(0, this.charIndex + 1);
+      this.typedText = currentRole.substring(
+        0,
+        this.charIndex + 1
+      );
+
       this.charIndex++;
 
       if (this.charIndex === currentRole.length) {
+
         this.isDeleting = true;
 
-        setTimeout(() => {
+        this.typingTimer = setTimeout(() => {
           this.startTypingEffect();
         }, this.pauseAfterTyping);
 
@@ -95,23 +93,31 @@ export class AppComponent implements OnInit {
 
     } else {
 
-      this.typedText = currentRole.substring(0, this.charIndex - 1);
+      this.typedText = currentRole.substring(
+        0,
+        this.charIndex - 1
+      );
+
       this.charIndex--;
 
       if (this.charIndex === 0) {
         this.isDeleting = false;
-        this.roleIndex = (this.roleIndex + 1) % this.roles.length;
+        this.roleIndex =
+          (this.roleIndex + 1) % this.roles.length;
       }
     }
 
-    setTimeout(() => {
+    this.typingTimer = setTimeout(() => {
       this.startTypingEffect();
     }, this.isDeleting ? this.deletingSpeed : this.typingSpeed);
   }
 
   toggleTheme() {
     this.isDark = !this.isDark;
-    document.documentElement.classList.toggle('dark', this.isDark);
+    document.documentElement.classList.toggle(
+      'dark',
+      this.isDark
+    );
   }
 
   toggleMenu() {
@@ -122,7 +128,10 @@ export class AppComponent implements OnInit {
     this.isMenuOpen = false;
   }
 
- downloadResume() {
-  window.open('/resume/Narsing_Gurme_Resume.pdf', '_blank');
-}
+  downloadResume() {
+    const link = document.createElement('a');
+    link.href = '/resume/Narsing_Gurme_Resume.pdf';
+    link.download = 'Narsing_Gurme_Resume.pdf';
+    link.click();
+  }
 }
