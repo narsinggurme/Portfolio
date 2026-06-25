@@ -6,8 +6,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* HERO */
-
 .hero-bg {
   background:
     radial-gradient(circle at top left, rgba(244, 63, 94, 0.2), transparent 30%),
@@ -96,8 +94,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* NAV */
-
 .nav-link {
   transition: 0.3s ease;
 }
@@ -111,8 +107,6 @@ body {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
 }
-
-/* STATS */
 
 .stats-card {
   padding: 30px;
@@ -238,8 +232,6 @@ body {
   }
 }
 
-/* CARET */
-
 .caret {
   display: inline-block;
   width: 2px;
@@ -261,8 +253,6 @@ body {
     opacity: 0;
   }
 }
-
-/* MOBILE */
 
 @media (max-width: 768px) {
 
