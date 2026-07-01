@@ -18,7 +18,7 @@
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#contact" class="nav-link">Contact</a>
 
-        <button (click)="toggleTheme()" class="theme-btn">
+        <button (click)="toggleTheme()" class="theme-btn" [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
           {{ isDark ? '☀️ Light' : '🌙 Dark' }}
         </button>
 
@@ -26,11 +26,11 @@
 
       <div class="md:hidden flex items-center gap-3">
 
-        <button (click)="toggleTheme()" class="theme-btn">
+        <button (click)="toggleTheme()" class="theme-btn" [attr.aria-label]="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
           {{ isDark ? '☀️' : '🌙' }}
         </button>
 
-        <button (click)="toggleMenu()" class="text-2xl">
+        <button (click)="toggleMenu()" class="text-2xl" aria-label="Toggle navigation menu" [attr.aria-expanded]="isMenuOpen">
           ☰
         </button>
 
@@ -39,7 +39,8 @@
     </div>
 
     <div *ngIf="isMenuOpen"
-      class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+      class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
+      role="navigation" aria-label="Mobile menu">
 
       <nav class="flex flex-col py-6 text-center gap-6">
 
@@ -123,8 +124,8 @@
       </div>
 
       <div class="stats-card">
-        <h3>30%</h3>
-        <p>Performance Improvement</p>
+        <h3>40%</h3>
+        <p>Fewer Code Smells & Bugs</p>
       </div>
 
       <div class="stats-card">
@@ -163,8 +164,9 @@
         </p>
 
         <p class="paragraph">
-          Worked on enterprise banking systems for HDFC Bank and Qatar National Bank,
-          delivering scalable backend workflows and secure distributed systems.
+          As part of Image InfoSystems' client engagements, delivered enterprise banking
+          systems for HDFC Bank and Qatar National Bank, building scalable backend workflows
+          and secure distributed systems.
         </p>
 
         <ul class="space-y-3 mt-6 text-gray-600 dark:text-gray-300">
@@ -202,7 +204,6 @@
 
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience" class="py-24 px-6 bg-gray-50 dark:bg-gray-800">
 
     <h2 class="section-title">
@@ -272,7 +273,6 @@
 
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
 
-      <!-- BACKEND -->
       <div class="glass-card p-8">
 
         <h3 class="text-2xl font-bold mb-6 text-rose-400">
@@ -356,7 +356,6 @@
 
     </div>
 
-    <!-- PROJECT 2 -->
     <div class="project-card">
 
       <h3 class="project-title">
@@ -383,7 +382,6 @@
 
     </div>
 
-    <!-- PROJECT 3 -->
     <div class="project-card">
 
       <h3 class="project-title">
@@ -476,11 +474,11 @@
       <div class="mt-10 space-y-4 text-lg">
 
         <p>
-          📞 +91 7666255871
+          📞 <a href="tel:+917666255871" class="nav-link">+91 76662 55871</a>
         </p>
 
         <p>
-          📧 narsinggurmegmail.com
+          📧 <a href="mailto:narsinggurme@gmail.com" class="nav-link">narsinggurme&#64;gmail.com</a>
         </p>
 
       </div>

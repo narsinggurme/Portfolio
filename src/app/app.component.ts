@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     'Fintech & Banking Application Developer',
     'Secure REST & SOAP API Specialist',
     'Angular Frontend Collaborator',
-    'Cloud & DevOps Enthusiast'
+    'Kafka & Event-Driven Systems'
   ];
 
   typedText = '';
